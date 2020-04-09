@@ -18,3 +18,8 @@ closeButton.onclick = function() {
 		window.sessionStorage.setItem("shownCount", shownCount+1);
 	}
 }
+
+function submitCustomAdFeedback() {
+	document.getElementById("actual-ad-feedback").style.display="none";
+	document.getElementById("ad-thank-you-message").style.display="block";
+}

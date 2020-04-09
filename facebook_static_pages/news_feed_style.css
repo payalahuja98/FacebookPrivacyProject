@@ -70,3 +70,42 @@
     cursor: pointer;
     color: #000000;
 }
+
+.ad-feedback {
+    border-top: 1px solid #dadde1;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.ad-feedback-text {
+    color: #606770;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+#ad-thank-you-message {
+    display: none;
+}
+
+#ad-feedback-item-left {
+    margin-left: 3%;
+}
+
+#ad-feedback-item-right {
+    margin-left: 1%;
+}
+
+.ad-feedback-item {
+    display: inline-block;
+    background-color: #e9ebee;
+    border-radius: 20%;
+    padding: 0.5% 1%;
+}
+
+.ad-feedback-item:hover {
+    cursor: pointer;
+    background-color: #a0a0a0;
+}
+
