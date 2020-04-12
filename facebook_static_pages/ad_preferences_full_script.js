@@ -119,3 +119,47 @@ function addRemoveInterestClickHandlers() {
 	}
 }
 
+addSubmitNewInterestOnClick();
+
+function addSubmitNewInterestOnClick() {
+	var submitButton = document.getElementById("custom_submit_add_interest")
+	submitButton.onclick = function() {
+		var inputText = document.getElementById("custom_add_interest_text");
+		var interest = inputText.value;
+
+		if(interest.length ==0) {
+			alert("Please Enter an Interest Before Submitting");
+		} else {			
+			var newListElem = document.createElement("LI");
+			
+			var text = document.createTextNode(interest);
+			newListElem.appendChild(text);
+			
+			var removeImage = document.createElement("IMG");
+			removeImage.classList.add("custom_remove_button");
+			removeImage.src="x_icon.png"
+			newListElem.appendChild(removeImage);
+
+			var customInterestsList = document.getElementById("custom_content_list");
+			// Unhide any elements up to the one we are adding
+			var length = customInterestsList.children.length;
+			var i = 1;
+			while(customInterestsList.children[length-i].classList.contains("hidden_elem")) {
+				customInterestsList.children[length-i].classList.remove("hidden_elem")
+				i++;
+			}
+
+			customInterestsList.append(newListElem);
+
+			// Add on click listener
+			removeImage.onclick = function() {
+				this.parentNode.parentNode.removeChild(this.parentNode);
+			}
+
+			// Change See More to Collapse Interests
+			seeMoreInterestsText.classList.add("hidden_elem");
+			collapseInterestsText.classList.remove("hidden_elem");
+		}
+	}
+}
+
