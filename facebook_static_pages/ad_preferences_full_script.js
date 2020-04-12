@@ -142,7 +142,7 @@ function addSubmitNewInterestOnClick() {
 			
 			var removeImage = document.createElement("IMG");
 			removeImage.classList.add("custom_remove_button");
-			removeImage.src="x_icon.png"
+			removeImage.src="remove_icon.png"
 			newListElem.appendChild(removeImage);
 
 			var customInterestsList = document.getElementById("custom_content_list");
