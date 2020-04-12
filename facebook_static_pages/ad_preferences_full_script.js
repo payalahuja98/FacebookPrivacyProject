@@ -104,3 +104,18 @@ function collapseList() {
 	collapseInterestsText.classList.add("hidden_elem");
 }
 
+addRemoveInterestClickHandlers();
+
+function addRemoveInterestClickHandlers() {
+	var customInterestsList = document.getElementById("custom_content_list");
+	var children = customInterestsList.children;
+
+	for(var i = 0; i < children.length; i++) {
+		var childItem = children[i];
+		var removeImage = childItem.getElementsByTagName("img")[0];
+		removeImage.onclick = function() {
+			this.parentNode.parentNode.removeChild(this.parentNode);
+		}
+	}
+}
+
