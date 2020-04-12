@@ -128,7 +128,12 @@ function addSubmitNewInterestOnClick() {
 		var interest = inputText.value;
 
 		if(interest.length ==0) {
-			alert("Please Enter an Interest Before Submitting");
+			// Set message to fail message
+			var successMessage = document.getElementById("custom_add_interest_success_result_text");
+			var failMessage = document.getElementById("custom_add_interest_failed_result_text");
+
+			successMessage.classList.add("hidden_elem");
+			failMessage.classList.remove("hidden_elem");
 		} else {			
 			var newListElem = document.createElement("LI");
 			
@@ -159,6 +164,13 @@ function addSubmitNewInterestOnClick() {
 			// Change See More to Collapse Interests
 			seeMoreInterestsText.classList.add("hidden_elem");
 			collapseInterestsText.classList.remove("hidden_elem");
+
+			// Set message to success message
+			var successMessage = document.getElementById("custom_add_interest_success_result_text");
+			var failMessage = document.getElementById("custom_add_interest_failed_result_text");
+
+			successMessage.classList.remove("hidden_elem");
+			failMessage.classList.add("hidden_elem");
 		}
 	}
 }
