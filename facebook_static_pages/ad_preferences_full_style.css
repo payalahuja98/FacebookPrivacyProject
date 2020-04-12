@@ -39,13 +39,13 @@
     list-style-position: inside
 }
 
-#custom_content_see_more {
+.custom_content_interests_final_message {
     padding: 10px;
     font-size: 16px;
     color:#888888;
 }
 
-#custom_content_see_more:hover {
+.custom_content_interests_final_message:hover {
     color:#222222;
     text-decoration: underline;
     cursor: pointer;
