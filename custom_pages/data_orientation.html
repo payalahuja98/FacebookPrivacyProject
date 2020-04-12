@@ -6,21 +6,17 @@
         <img src="facebook_logo.png" alt="" width="50px" height="50px">
         <div id="intro" style="text-align:center" class="center">
             <h1 align="center">Welcome to Facebook.</h1>
-            <h4 style="color:darkgray" align="center">We want you to have the most unique experience here. That is why we give you control over the content and ads you see.</h4></li>
-            <h4 style="color:darkgray"align="center">We deeply value your privacy. You have total say in what information you share.</h4></li>
-            <h4 style="color:darkgray"align="center">Press next to go through a tutorial that will take you through all these features.</h4>
+            <h4 style="color:lightslategray" align="center">We want you to have the most unique experience here. That is why we give you control over the content and ads you see.</h4></li>
+            <h4 style="color:lightslategray"align="center">The information you choose to share will help us show you the most relevant content.</h4></li>
+            <h4 style="color:lightslategrey"align="center">Click through the steps to learn about our different features.</h4>
         </div>
         <style>
             .tab-content {
                 display:none;
             }
-
             .center{
-                border-radius: 1em;
-                padding: 1em;
-                position: absolute;
-                top: 30%;
-                left: 20%;
+                text-align:center;
+                padding:10%;
             }
             html {
                 -webkit-font-smoothing: antialiased!important;
@@ -145,44 +141,48 @@
                 right:50%;
                 margin-right:20px;
             }
+            .video{
+                display:block;
+                margin:auto;
+                text-align:center;
+            }
 
             
         </style>
 
-        <div id="privacy" class="tab-content">
-        </div>
-
-        <div id="data_collection" class="tab-content">
-            <h2> Data Policy Video: </h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/6zmfT9EQIPM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="privacy_data" class="tab-content">
+            <video class='video' width='50%'' controls>
+                <source src='yoga_video.mp4' type='video/mp4'>
+            </video>
         </div>
 
         <div id="ad_settings" class="tab-content">
-            <h2> Ad-Preference Settings Video: </h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/DihAZ-KJ1kY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video class='video' width='50%'' controls>
+                <source src='yoga_video.mp4' type='video/mp4'>
+            </video>
+        </div>
+
+        <div id="ad_preferences" class="tab-content">
         </div>
 
         <div id="review" class="tab-content">
-            <img src="makeup.jpg" width="300px" height="300px">
-            <img src="running.jpg" width="300px" height="300px">
-            <img src="reading.jpg" width="300px" height="300px">
         </div>
 
 
         <div class="md-stepper-horizontal orange">
         <div class="md-step">
-        <div id="step1" class="md-step-circle" onclick="clickTab('step1', 'privacy')"><span>1</span></div>
-        <div class="md-step-title">Privacy</div>
+        <div id="step1" class="md-step-circle" onclick="clickTab('step1', 'privacy_data')"><span>1</span></div>
+        <div class="md-step-title">Privacy and Data</div>
         <div class="md-step-bar-left"></div>
         <div class="md-step-bar-right"></div>
         </div><div class="md-step">
-        <div id="step2" class="md-step-circle" onclick="clickTab('step2', 'data_collection')"><span>2</span></div>
-        <div class="md-step-title">Data Collection</div>
-        <div class="md-step-bar-left"></div>
-        <div class="md-step-bar-right"></div>
-        </div><div class="md-step">
-        <div id="step3" class="md-step-circle" onclick="clickTab('step3', 'ad_settings')"><span>3</span></div>
+        <div id="step2" class="md-step-circle" onclick="clickTab('step2', 'ad_settings')"><span>2</span></div>
         <div class="md-step-title">Ad Settings</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+        </div><div class="md-step">
+        <div id="step3" class="md-step-circle" onclick="clickTab('step3', 'ad_preferences')"><span>3</span></div>
+        <div class="md-step-title">Ad Preferences</div>
         <div class="md-step-bar-left"></div>
         <div class="md-step-bar-right"></div>
         </div><div class="md-step">
@@ -215,3 +215,4 @@
     </body>
     
 </html>
+
