@@ -67,6 +67,7 @@
 
 #custom_content_interests_list_div {
     width:60%;
+    overflow-wrap: break-word;
 }
 
 #custom_add_interest_div {
