@@ -54,3 +54,34 @@ function toggleOpenClose(prefix) {
 		content.classList.add("hidden_elem")
 	}
 }
+
+
+var seeMoreInterests = document.getElementById("custom_content_see_more");
+seeMoreInterests.onclick = function() {
+	showMoreInterests();
+}
+
+function showMoreInterests() {
+	var customInterestsList = document.getElementById("custom_content_list");
+	var children = customInterestsList.children;
+
+	var childrenChanged = 0;
+	var reachedFinalIndex = true;
+	for(var i = 0; i < children.length; i++) {
+		var childItem = children[i];
+		if (childItem.classList.contains("hidden_elem")) {
+			childItem.classList.remove("hidden_elem");
+			childrenChanged += 1;
+		}
+
+		if (childrenChanged >= 10) {
+			reachedFinalIndex = false;
+			break;
+		}
+	}
+
+	if(reachedFinalIndex === true) {
+		seeMoreInterests.classList.add("hidden_elem");
+	}
+}
+
