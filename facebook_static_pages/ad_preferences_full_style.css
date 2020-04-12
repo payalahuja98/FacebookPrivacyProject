@@ -1,0 +1,25 @@
+.recent_ad_activity_icon {
+    background-image: url("recent_ad_activity.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 20px;
+    width: 20px
+}
+
+.recent_ad_activity_color {
+    background-color: #ff8533
+}
+
+.ad_library_color {
+    background-color: #668cff
+}
+
+.custom_content_text {
+    padding: 10px;
+    color: #929598;
+    font-size: 14px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+}
