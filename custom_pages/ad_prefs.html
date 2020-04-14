@@ -1,0 +1,59 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
+<body>
+  <style>
+      form{
+        width:100%;
+      }
+      input{
+        float:left;
+        width:50px;
+        margin-bottom:10px; /*or whatever you want the spacing to be*/
+      }
+      #tags{
+        border: 1px solid transparent;
+        background-color: #f1f1f1;
+        padding: 10px;
+        font-size: 16px;
+      }
+  </style> 
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>   
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+   <script> 
+    $(function autocomplete(){ 
+        var tags = ["Reading","Watching TV","Family Time","Movies","Fishing","Computers",
+                             "Gardening","Exercise","Music","Hunting","Shopping","Traveling",
+                             "Sleeping","Socializing","Sewing","Golf","Housework","Hiking",
+                             "Cooking","Eating Out","Swimming","Camping","Skiing","Cars",
+                             "Writing","Animals","Painting","Running","Dancing","Tennis",
+                             "Theater","Volunteering","H&M","Forever 21","Disney","Nike","Target","Walmart","Starbucks","McDonald's",
+                             "Coca-Cola","Pepsi","Louis Vuitton","Mercedes-Benz","BMW","Gucci","L'Oréal",
+                             "IKEA","Netflix","CVS","Zara","Chase","Bank of America","Adidas","Costco",
+                             "KFC","Chanel","NBC","ABC","Dunkin' Donuts"];
+ 
+         $( "#tags" ).autocomplete({ 
+             source: tags 
+         });
+
+         document.addEventListener("click", function (event) {
+            if (event.target.id !== 'tags') {
+                document.getElementById('tags').remove();
+            }
+        });
+     });
+   </script>
+</head> 
+<body> 
+   
+<div id='searches' class='ui-widget'>
+    <form>
+        <input id="tags" placeholder='Search' oninput="autocomplete()">  
+    </form>
+</div>
+   
+</body> 
+</html> 

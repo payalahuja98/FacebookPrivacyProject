@@ -9,6 +9,7 @@
             <h4 style="color:lightslategray" align="center">We want you to have the most unique experience here. That is why we give you control over the content and ads you see.</h4></li>
             <h4 style="color:lightslategray"align="center">The information you choose to share will help us show you the most relevant content.</h4></li>
             <h4 style="color:lightslategrey"align="center">Click through the steps to learn about our different features.</h4>
+            <button onclick="location.href = '../facebook_static_pages/news_feed.html'">Skip for now</button>
         </div>
         <style>
             .tab-content {
@@ -146,8 +147,26 @@
                 margin:auto;
                 text-align:center;
             }
+            .frame{
+                text-align:center;
+                display:block;
+                padding:10%;
+                margin:auto;
+            }
+            /* Three image containers (use 25% for four, and 50% for two, etc) */
+            .column {
+                float: left;
+                width: 33.33%;
+                padding: 5px;
+                margin:auto;
+            }
 
-            
+            /* Clear floats after image containers */
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
         </style>
 
         <div id="privacy_data" class="tab-content">
@@ -163,9 +182,18 @@
         </div>
 
         <div id="ad_preferences" class="tab-content">
+            <iframe src='ad_prefs.html' class='frame' frameborder='0' scrolling='no'></iframe>
         </div>
 
         <div id="review" class="tab-content">
+            <h2 align='center' style='color:darkslategray'>Thank you for filling out your interests.</h1>
+            <h3 align='center' style='color:gray'>Here are some examples of ads you might see:</h2>
+            <div class="row">
+                <div class="center">
+                    <img src="fb_ad_1.JPG" style="width:50%">
+                    <img src="fb_ad_3.JPG" style="width:50%">
+                </div>
+                </div>
         </div>
 
 
