@@ -2049,5 +2049,68 @@
         </div>
       </div>
     </div>
+    <div class="uiContextualLayerPositioner uiLayer uiContextualLayerPositionerFixed hidden_elem" id = "settings_menu_top_level_div" style="z-index: 301;">
+      <div class="uiContextualLayer _5v-0 _53il uiContextualLayerBelowRight" aria-labelledby="" style="right: 0px;">
+        <div class="_54nq _9jo _558b _2n_z">
+          <div class="_54ng">
+            <div class="uiScrollableArea fade uiScrollableAreaWithShadow">
+              <div class="uiScrollableAreaWrap scrollable" style="max-height: 500px;" id="js_3r">
+                <div class="uiScrollableAreaBody">
+                  <div class="uiScrollableAreaContent">
+                    <ul class="_54nf" role="menu">
+                      <li class="_54ni navSubmenu __MenuItem" role="presentation">
+                        <a class="_54nc" href="#" role="menuitem"><span>
+                            <span class="_54nh">Your Groups</span></span>
+                        </a>
+                      </li>
+                      <li class="_54ak __MenuItem" role="separator"></li>
+                      <li class="_54ni navSubmenu _6398 _6393 __MenuItem" role="presentation">
+                        <a class="_54nc" href="#" role="menuitem"><span>
+                            <span class="_54nh">Activity Log</span></span>
+                        </a>
+                      </li>
+                      <li class="_54ni navSubmenu _6398 __MenuItem" role="presentation">
+                        <a class="_54nc" href="#" rel="dialog" role="menuitem"><span>
+                            <span class="_54nh">News Feed Preferences</span></span>
+                        </a>
+                      </li>
+                      <li class="_54ni navSubmenu _6398 __MenuItem" role="presentation">
+                        <a class="_54nc" href="general_account_settings.html" role="menuitem"><span>
+                            <span class="_54nh">Settings</span></span>
+                        </a>
+                      </li>
+                      <li class="_54ak __MenuItem" role="separator"></li>
+                      <li class="_54ni navSubmenu _6398 _64kz __MenuItem" role="presentation">
+                        <a class="_54nc" href="#" role="menuitem"><span>
+                            <span class="_54nh">Log Out</span></span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <i class="_53io" style="left: 100%; margin-left: -28px;"></i>
+      </div>
+    </div>
+    <script>
+      var logoutMenuOpenButtonDiv = document.getElementById("logoutMenu");
+      logoutMenuOpenButtonDiv.onclick = function() {
+        var rect = this.getBoundingClientRect();
+        bodyRect = document.body.getBoundingClientRect()
+
+        var logoutMenuDiv = document.getElementById("settings_menu_top_level_div");
+        logoutMenuDiv.style.top = rect.bottom.toString() + "px";
+        var rightOffset = bodyRect.right - rect.right;
+        logoutMenuDiv.style.right = rightOffset.toString() + "px";
+        if (logoutMenuDiv.classList.contains("hidden_elem")) {
+          logoutMenuDiv.classList.remove("hidden_elem");
+        } else {
+          logoutMenuDiv.classList.add("hidden_elem");
+        }
+      }
+    </script>
   </body>
 </html>
