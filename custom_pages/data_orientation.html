@@ -31,7 +31,6 @@
             }
 
             #skip_button {
-                cursor: pointer;
                 background-color: #e9ebee;
                 border-radius: 10%;
                 font-size: 14px;
@@ -39,8 +38,12 @@
                 padding: 0.5% 1%;
             }
 
-            #continue_button {
+            #skip_button:hover {
                 cursor: pointer;
+                background-color: #929598;
+            }
+
+            #continue_button {
                 background-color: #e9ebee;
                 border-radius: 10%;
                 font-size: 18px;
@@ -49,6 +52,11 @@
                 position: fixed;
                 bottom: 150px;
                 right: 100px;
+            }
+
+            #continue_button:hover {
+                cursor: pointer;
+                background-color: #929598;
             }
 
             .md-stepper-horizontal {
@@ -190,6 +198,83 @@
                 display: table;
             }
         </style>
+        <style>
+            #add_interests {
+                padding: 10px;
+                color: #929598;
+                font-size: 20px;
+                margin-bottom: 10%;
+            }
+
+            #custom_content_list {
+                list-style-type: disc;
+                list-style-position: inside
+            }
+
+            .custom_remove_button {
+                margin-left: 8px;
+            }
+
+            .custom_remove_button:hover {
+                box-shadow: 4px 4px 10px #929598;
+                cursor: pointer;
+            }
+
+            .customize_interest_block {
+                display: inline-block;
+                vertical-align: top;
+                margin-top: 1%;
+            }
+
+            #custom_content_interests_list_div {
+                width:20%;
+                margin-left: 30%;
+                overflow-wrap: break-word;
+            }
+
+            #custom_add_interest_div {
+                width:25%;
+                margin-right: 20%;
+            }
+
+            #custom_add_interest_text {
+                font-size: 14px;
+            }
+
+            #custom_submit_add_interest {
+                font-size: 14px;
+                padding: 5px;
+                border-radius: 5px;
+                background-color: #CCCCCC;
+            }
+
+            #custom_submit_add_interest:hover {
+                cursor: pointer;
+                background-color: #929598;
+            }
+
+            .custom_add_interest_result_text {
+                margin-left: 5px;
+                font-size: 14px;
+                color: #929598;
+                font-weight: bold;
+            }
+
+            .hidden_elem {
+                display: none;
+            }
+
+            .add_interests_headers {
+                text-align: center;
+            }
+
+            #add_interests_detailed_description {
+                color: #929598;
+                margin-left: 20%;
+                margin-top: 1%;
+                margin-right: 20%;
+            }
+        </style>
 
         <div id="privacy_data" class="tab-content">
             <video class='video' width='50%'' controls>
@@ -203,13 +288,31 @@
             </video>
         </div>
 
-        <div id="ad_preferences" class="tab-content">
-            <iframe src='ad_prefs.html' class='frame' frameborder='0' scrolling='no'></iframe>
+        <div id="add_interests" class="tab-content">
+            <h2 class="add_interests_headers"> Add 5 Interests Below </h2>
+            <h5 id="add_interests_detailed_description" class="add_interests_headers">Please add at least 5 interests below to set up your initial preferences for what ads are shown to you. These will help us provide you the best ad experience. They will also evolve throughout your usage. They can later be added to or removed by using the Ad Preference settings page. </h5>
+            <div id="custom_content_interests_list_div" class="customize_interest_block">
+                <ul id="custom_content_list">
+                    <li>Sports<img class="custom_remove_button" src="../facebook_static_pages/remove_icon.png"></li>
+                </ul>
+            </div>
+            <div id="custom_add_interest_div" class="customize_interest_block">
+                <div>
+                    <input type="text" id="custom_add_interest_text" placeholder="Interest" size=27>
+                    <button id="custom_submit_add_interest">Add Interest</button>
+                </div>
+                <div id="custom_add_interest_success_result_text" class="custom_add_interest_result_text hidden_elem">
+                  Added Interest!
+                </div>
+                <div id="custom_add_interest_failed_result_text" class="custom_add_interest_result_text hidden_elem">
+                  Please Enter A Valid Interest!
+                </div>
+            </div>
         </div>
 
         <div id="review" class="tab-content">
-            <h2 align='center' style='color:darkslategray'>Thank you for filling out your interests.</h1>
-            <h3 align='center' style='color:gray'>Here are some examples of ads you might see:</h2>
+            <h2 align='center' style='color:darkslategray'>Thank you for filling out your interests.</h2>
+            <h3 align='center' style='color:gray'>Here are some examples of ads you might see:</h3>
             <div class="row">
                 <div class="center">
                     <img src="fb_ad_1.JPG" style="width:50%">
@@ -232,7 +335,7 @@
         <div class="md-step-bar-left"></div>
         <div class="md-step-bar-right"></div>
         </div><div class="md-step">
-        <div id="step3" class="md-step-circle" onclick="clickTab('step3', 'ad_preferences')"><span>3</span></div>
+        <div id="step3" class="md-step-circle" onclick="clickTab('step3', 'add_interests')"><span>3</span></div>
         <div class="md-step-title">Ad Preferences</div>
         <div class="md-step-bar-left"></div>
         <div class="md-step-bar-right"></div>
@@ -263,6 +366,66 @@
             }
         </script>
 
+        <script language="JavaScript">
+            addRemoveInterestClickHandlers();
+
+            function addRemoveInterestClickHandlers() {
+                var customInterestsList = document.getElementById("custom_content_list");
+                var children = customInterestsList.children;
+
+                for(var i = 0; i < children.length; i++) {
+                    var childItem = children[i];
+                    var removeImage = childItem.getElementsByTagName("img")[0];
+                    removeImage.onclick = function() {
+                        this.parentNode.parentNode.removeChild(this.parentNode);
+                    }
+                }
+            }
+
+            addSubmitNewInterestOnClick();
+
+            function addSubmitNewInterestOnClick() {
+                var submitButton = document.getElementById("custom_submit_add_interest")
+                submitButton.onclick = function() {
+                    var inputText = document.getElementById("custom_add_interest_text");
+                    var interest = inputText.value;
+
+                    if(interest.length ==0) {
+                        // Set message to fail message
+                        var successMessage = document.getElementById("custom_add_interest_success_result_text");
+                        var failMessage = document.getElementById("custom_add_interest_failed_result_text");
+
+                        successMessage.classList.add("hidden_elem");
+                        failMessage.classList.remove("hidden_elem");
+                    } else {            
+                        var newListElem = document.createElement("LI");
+                        
+                        var text = document.createTextNode(interest);
+                        newListElem.appendChild(text);
+                        
+                        var removeImage = document.createElement("IMG");
+                        removeImage.classList.add("custom_remove_button");
+                        removeImage.src="../facebook_static_pages/remove_icon.png"
+                        newListElem.appendChild(removeImage);
+
+                        var customInterestsList = document.getElementById("custom_content_list");
+                        customInterestsList.append(newListElem);
+
+                        // Add on click listener
+                        removeImage.onclick = function() {
+                            this.parentNode.parentNode.removeChild(this.parentNode);
+                        }
+
+                        // Set message to success message
+                        var successMessage = document.getElementById("custom_add_interest_success_result_text");
+                        var failMessage = document.getElementById("custom_add_interest_failed_result_text");
+
+                        successMessage.classList.remove("hidden_elem");
+                        failMessage.classList.add("hidden_elem");
+                    }
+                }
+            }
+        </script>
     </body>
     
 </html>
