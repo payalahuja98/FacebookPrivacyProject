@@ -9,7 +9,7 @@
             <h4 style="color:lightslategray" align="center">We want you to have the most unique experience here. That is why we give you control over the content and ads you see.</h4></li>
             <h4 style="color:lightslategray"align="center">The information you choose to share will help us show you the most relevant content.</h4></li>
             <h4 style="color:lightslategrey"align="center">Click through the steps to learn about our different features.</h4>
-            <button onclick="location.href = '../facebook_static_pages/news_feed.html'">Skip for now</button>
+            <button id="skip_button" onclick="location.href = '../facebook_static_pages/news_feed.html'">Skip for now</button>
         </div>
         <style>
             .tab-content {
@@ -29,6 +29,28 @@
             font-size:16px;
             color:#555555; 
             }
+
+            #skip_button {
+                cursor: pointer;
+                background-color: #e9ebee;
+                border-radius: 10%;
+                font-size: 14px;
+                border: 0.5px solid black;
+                padding: 0.5% 1%;
+            }
+
+            #continue_button {
+                cursor: pointer;
+                background-color: #e9ebee;
+                border-radius: 10%;
+                font-size: 18px;
+                border: 0.5px solid black;
+                padding: 0.5% 1%;
+                position: fixed;
+                bottom: 150px;
+                right: 100px;
+            }
+
             .md-stepper-horizontal {
                 position:fixed;
                 bottom:0;
@@ -193,7 +215,8 @@
                     <img src="fb_ad_1.JPG" style="width:50%">
                     <img src="fb_ad_3.JPG" style="width:50%">
                 </div>
-                </div>
+            </div>
+            <button id="continue_button" onclick="location.href = '../facebook_static_pages/news_feed.html'">Continue!</button>
         </div>
 
 
